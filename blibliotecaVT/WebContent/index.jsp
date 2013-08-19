@@ -40,7 +40,10 @@
 			<div class="divDialogElements">
 				<input class="xlarge" type="text" required="required" placeholder="Usuário" />
 				<input class="xlarge" type="password" required="required" placeholder="Senha"/>
+				
 			</div>
+			<input type="checkbox"/> 
+			<h:outputText value="Mantenha-me conectado"/>
 		</div>
 		<div class="modal-footer">
 			<a href="#" class="btn" onclick="closeDialog ();">Cancel</a>
@@ -67,6 +70,25 @@
 	    </div>
 	  </div>
 	</div>
+	<br><br><br><br>
+	<div class="container">
+		<div class="masthead">
+			<div class="navbar">
+		        <div class="navbar-inner">
+		          <div class="container">
+		               <ul class="nav">
+		               <li class="active"><a href="#">Home</a></li>
+		               <li><a href="#">Projects</a></li>
+		               <li><a href="#">Services</a></li>
+		               <li><a href="#">Downloads</a></li>
+		               <li><a href="#">About</a></li>
+		               <li><a href="#">Contact</a></li>
+	              </ul>
+		          </div>
+		       </div>
+		   </div>
+	   </div>
+   </div>
   </body>
 </html>
 </f:view>
