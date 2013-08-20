@@ -7,26 +7,11 @@
 <f:loadBundle basename="resources.application" var="msg"/>
 <html>
   <head>
-    <title><h:outputText value="#{msg.welcomeTitle}" /></title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <title><h:outputText value="#{msg.welcomeTitle}" /></title>
+      <meta name="viewport" content="width=device-width, minimun-scale=1, maximun-scale=1">
+      <link href="css/bt/bootstrap.min.css" rel="stylesheet" media="screen">
       <script src="http://code.jquery.com/jquery.js"></script>
       <script src="js/bootstrap.min.js"></script>
-	 
-	  <style>
-	      .divDialogElements input {
-		      font-size: 18px;
-			  padding: 3px; 
-			  height: 32px; 
-			  width: 500px; 
-		  }
-	  </style>
-	  <script>
-			function closeDialog () {
-				$('#windowTitleDialog').modal('hide'); 
-			};
-			
-	</script>
   </head>
   
   <body>
