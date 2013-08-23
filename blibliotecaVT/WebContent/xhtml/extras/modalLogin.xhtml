@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<f:view>
+	<div id="windowTitleDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+		<div class="modal-header">
+			<a href="#" class="close" data-dismiss="modal">x</a>
+			<h3><h:outputText value="Acesse sua conta"/></h3>
+			</div>
+		<div class="modal-body">
+			<div class="divDialogElements">
+				<input class="xlarge" type="text" id="login_usuario" placeholder="Usuário" />
+				<input class="xlarge" type="password" id="login_senha" placeholder="Senha"/>
+			</div>
+			<input type="checkbox"/> 
+			<h:outputText value=" Mantenha-me conectado"/>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" onclick="closeDialog ();"><h:outputText value="Cancel"/></a>
+			<a href="#" class="btn btn-primary" onclick="okClicked ();"><h:outputText value=" Entrar"/></a>
+		</div>
+	</div>
+</f:view>
+<script src="js/extras/modalLogin.js"/>
+<link href="css/extras/modalLogin.css" rel="stylesheet" media="screen" />
+</html>

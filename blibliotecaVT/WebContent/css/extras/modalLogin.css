@@ -1,0 +1,14 @@
+.divDialogElements input {
+    font-size: 16px;
+	padding: 3px; 
+	height: 30px; 
+	width: 400px; 
+}
+
+#windowTitleDialog {
+	width: 440px;
+}
+
+#windowTitleDialog .modal-header h3 {
+	font-size: 20px;
+}
