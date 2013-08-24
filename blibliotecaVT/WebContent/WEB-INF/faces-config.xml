@@ -10,15 +10,16 @@
 		<locale-config>
 			<default-locale>pt</default-locale>
 		</locale-config>
+		
 		<message-bundle>resources.modalLoginBR</message-bundle>
 		<locale-config>
 			<default-locale>pt</default-locale>
 		</locale-config>
+		
 		<message-bundle>resources.menuBR</message-bundle>
 		<locale-config>
 			<default-locale>pt</default-locale>
 		</locale-config>
-		
 	</application>
 
 </faces-config>
