@@ -3,17 +3,18 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <f:view>
+	<f:loadBundle basename="resources.menuBR" var="msgMenu"></f:loadBundle>
     <div class="containerrr container">
 		<div class="masthead">
 			<div class="navbarr navbar">
 				<div class=" navbarr-inner navbar-inner">
 					<div class="containerr container">
 						<ul class="nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#">Projects</a></li>
-							<li><a href="#">Services</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Contact</a></li>
+							<li class="active"><a href="#"><h:outputText value="#{msgMenu.inicio}"/></a></li>
+							<li><a href="#"><h:outputText value="#{msgMenu.pesquisas}"/></a></li>
+							<li><a href="#"><h:outputText value="#{msgMenu.servicos}"/></a></li>
+							<li><a href="#"><h:outputText value="#{msgMenu.informacoes}"/></a></li>
+							<li><a href="#"><h:outputText value="#{msgMenu.contato}"/></a></li>
 						</ul>
 					</div>
 				</div>

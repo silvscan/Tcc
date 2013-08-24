@@ -6,10 +6,19 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
 	<application>
-		<message-bundle>resources.application</message-bundle>
+		<message-bundle>resources.templateBR</message-bundle>
 		<locale-config>
-			<default-locale>en</default-locale>
+			<default-locale>pt</default-locale>
 		</locale-config>
+		<message-bundle>resources.modalLoginBR</message-bundle>
+		<locale-config>
+			<default-locale>pt</default-locale>
+		</locale-config>
+		<message-bundle>resources.menuBR</message-bundle>
+		<locale-config>
+			<default-locale>pt</default-locale>
+		</locale-config>
+		
 	</application>
 
 </faces-config>

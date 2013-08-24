@@ -5,9 +5,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<f:loadBundle basename="resources.application" var="msg" />
+<f:loadBundle basename="resources.templateBR" var="msgTemplate" />
 <head>
-	<title><h:outputText value="#{msg.welcomeTitle}" /></title>
+	<title><h:outputText value="#{msgTemplate.titulo}" /></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="js/extras/util.js"/>
 	<link href="css/bt/bootstrap.css" rel="stylesheet" media="screen" />
@@ -27,13 +27,13 @@
 					<span class="icon-bar"></span>
 				</a> 
 				<a class="brand" href="#">
-					<h:outputText value="#{msg.welcomeTitle}" />
+					<h:outputText value="#{msgTemplate.titulo}" />
 				</a>
 				<div class="nav-collapse">
 					<ul class="nav pull-right">
 						<li class="divider-vertical"/>
 						<li>
-							<a data-toggle="modal" href="#windowTitleDialog"><h:outputText value="Entrar" /><img src="img/login.png" /></a>
+							<a data-toggle="modal" href="#windowTitleDialog"><h:outputText value="#{msgTemplate.linkLogin}" /><img src="img/login.png" /></a>
 						</li>
 					</ul>
 				</div>
