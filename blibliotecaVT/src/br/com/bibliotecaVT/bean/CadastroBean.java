@@ -19,9 +19,17 @@ public class CadastroBean {
 	private Trabalho trabalho;
 	private VOControleAluno voCadastrarAluno;
 	
-	private void cadastrarAluno(){
+	public CadastroBean() {
+		aluno = new Aluno();
+		orientador = new Orientador();
+		curso = new Curso();
+		trabalho = new Trabalho();
+	}
+	
+	public void cadastrarAluno(){
 		voCadastrarAluno = new VOControleAluno();
 		Resultado resultato = voCadastrarAluno.cadastrar(aluno);
+		System.out.println(resultato);
 	}
 	
 	public Aluno getAluno() {

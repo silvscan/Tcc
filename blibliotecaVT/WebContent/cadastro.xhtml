@@ -18,10 +18,10 @@
               <div class="tab-content" style="overflow-x:hidden;">
                 <div class="tab-pane active" id="lA">
                   	<fieldset>
-				      <div class="span12">
-						<legend>Cadastro de Alunos</legend>
+				        <div class="span12">
+					<legend>Cadastro de Alunos</legend>
 					</div>
-					<h:form  enctype="multipart/form-data">
+					<h:form id="frmCadastroAluno">
 						<div class="span5"> 
 							<h:outputText value="Nome:"/><br/>
 							<h:inputText id="nomeAluno" styleClass="input-large" value="#{cadastroBean.aluno.nome}"></h:inputText><br/>
@@ -43,9 +43,11 @@
 						<div class="span9">
 							<br/>
 							<p>
+								<form>
 								<h:commandLink styleClass="btn btn-danger" value="Cancelar"/>
 								<h:outputText value=" "/>  
-								<h:commandLink styleClass="btn btn-success" value="Cadastrar" action="cadastroBean.cadastrarAluno"/>
+								<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{cadastroBean.cadastrarAluno}"/>
+								</form>
 							</p>
 						</div>
 					</h:form>
