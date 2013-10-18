@@ -1,0 +1,228 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+<ui:composition template="_template.xhtml" >
+	<ui:define name="conteudo" >
+		<div class="container">
+			  <br/>
+			  <div class="tabbable tabs-left">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#lA" data-toggle="tab">Cadastro de Alunos</a></li>
+                <li><a href="#lB" data-toggle="tab">Cadastros de Orientadores</a></li>
+                <li><a href="#lC" data-toggle="tab">Cadastro de Trabalhos</a></li>
+                <li><a href="#lD" data-toggle="tab">Cadastro de Cursos</a></li>
+              </ul>
+              <div class="tab-content" style="overflow-x:hidden;">
+                <div class="tab-pane active" id="lA">
+                  	<fieldset>
+				      <div class="span12">
+						<legend>Cadastro de Alunos</legend>
+					</div>
+					<h:form  enctype="multipart/form-data">
+						<div class="span5"> 
+							<h:outputText value="Nome:"/><br/>
+							<h:inputText id="nomeAluno" styleClass="input-large" value="#{cadastroBean.aluno.nome}"></h:inputText><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="RA:"/><br/>
+							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium" value="#{cadastroBean.aluno.ra}"></h:inputText><br/>
+						</div>
+						<div class="span5">
+							<h:outputText value="Data de Nascimento:"/><br/>
+							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium" value="#{cadastroBean.aluno.dataNasc}"/><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="E-mail:"/><br/>
+							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large" value="#{cadastroBean.aluno.nome}"></h:inputText><br/>
+						</div>
+						
+						<br/>
+						<div class="span9">
+							<br/>
+							<p>
+								<h:commandLink styleClass="btn btn-danger" value="Cancelar"/>
+								<h:outputText value=" "/>  
+								<h:commandLink styleClass="btn btn-success" value="Cadastrar" action="cadastroBean.cadastrarAluno"/>
+							</p>
+						</div>
+					</h:form>
+				    </fieldset>
+                </div>
+                
+                <div class="tab-pane" id="lB">
+                    <fieldset>
+				      <div class="span12">
+						<legend>Cadastro de Orientadores</legend>
+					</div>
+					<h:form  enctype="multipart/form-data">
+						<div class="span5"> 
+							<h:outputText value="Nome:"/><br/>
+							<h:inputText id="nomeAluno" styleClass="input-large"></h:inputText><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="Código:"/><br/>
+							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium"></h:inputText><br/>
+						</div>
+						<div class="span5">
+							<h:outputText value="E-mail:"/><br/>
+							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large"></h:inputText><br/>
+						</div>
+						
+						<br/>
+						<div class="span9">
+							<br/>
+							<p>
+								<a class="btn btn-danger" href="#">Cancelar</a>
+								<a class="btn btn-success" href="#">Cadastrar</a>
+							</p>
+						</div>
+					</h:form>
+				    </fieldset>
+                </div>
+                
+                <div class="tab-pane" id="lC">
+                    <fieldset>
+				        <div class="span12">
+						    <legend>Cadastro de Trabalhos de Conclusão de Curso</legend>
+					    </div>
+					</fieldset>
+					<h:form  enctype="multipart/form-data" id="formCTCC">
+						<div class="span5">
+							<h:outputText value="Título:"/><br/>
+							<h:inputText id="tituloTrabalho" styleClass="input-large"/>
+						</div>
+						<div class="span4">
+							<h:outputText value="Faculdade"/><br/>
+							<h:selectOneMenu>
+								<f:selectItem itemValue="Selecione"/>
+								<f:selectItem itemValue="Faccamp"/>
+							</h:selectOneMenu><br/>
+						</div>
+						<div class="span5">
+							<h:outputText value="Curso:"/><br/>
+							<h:selectOneMenu>
+								<f:selectItem itemValue="Selecione"/>
+								<f:selectItem itemValue="Ciência da Computação"/>
+								<f:selectItem itemValue="Química"/>
+							</h:selectOneMenu><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="Data de Conclusão:"/><br/>
+							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium"/><br/>
+						</div>
+						<div class="span5">
+							<h:outputText value="Orientador:"/><br/>
+							<h:selectOneMenu>
+								<f:selectItem itemValue="Selecione"/>
+								<f:selectItem itemValue="1" itemLabel="André Ribeiro"/>
+							</h:selectOneMenu><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="Código do orientador:"/><br/>
+							<h:inputText id="codOrientador" styleClass="input-large" disabled="true"/>
+						</div>
+						<div class="span5">
+							<h:outputText value="Aluno:"/><br/>
+							<h:selectOneMenu>
+								<f:selectItem itemValue="Selecione"/>
+								<f:selectItem itemValue="11122" itemLabel="Rafael Scane da Silva"/>
+							</h:selectOneMenu>
+						</div>
+						<div class="span4">
+							<h:outputText value="RA do Aluno:"/><br/>
+							<h:inputText id="raAluno" styleClass="input-large" disabled="true"/>
+						</div>
+						<div class="span9">
+							<h:outputText value="Upload do trabalho :"/><br/>
+							<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
+						    <div id="fileName"></div>
+						    <div id="fileSize"></div>
+						    <div id="fileType"></div>
+						</div>
+						<div class="span9">
+							<br/>
+							<p>
+								<a class="btn btn-danger" href="#">Cancelar</a>
+								<a class="btn btn-success" href="#">Cadastrar</a>
+							</p>
+						</div>
+					</h:form>
+                </div>
+                
+                <div class="tab-pane" id="lD">
+	                  <fieldset>
+				      <div class="span12">
+						<legend>Cadastro de Curso</legend>
+					</div>
+					<h:form  enctype="multipart/form-data">
+						<div class="span9">
+							<h:outputText value="Área de Conhecimento:"/><br/>
+							<h:selectOneMenu>
+								<f:selectItem itemValue="Selecione"/>
+								<f:selectItem itemValue="Ciência Agrária"/>
+								<f:selectItem itemValue="Ciência Biológica"/>
+								<f:selectItem itemValue="Ciência da Saúde"/>
+								<f:selectItem itemValue="Ciência Exata e da Terra"/>
+								<f:selectItem itemValue="Ciência Humana"/>
+								<f:selectItem itemValue="Ciência Social Aplicada"/>
+								<f:selectItem itemValue="Engenharia"/>
+								<f:selectItem itemValue="Linguitíca, Letras e Artes"/>
+							</h:selectOneMenu><br/>
+						</div>
+						<div class="span5"> 
+							<h:outputText value="Título:"/><br/>
+							<h:inputText id="nomeAluno" styleClass="input-large"></h:inputText><br/>
+						</div>
+						<div class="span4">
+							<h:outputText value="Código:"/><br/>
+							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium"></h:inputText><br/>
+						</div>
+						<br/>
+						<div class="span9">
+							<br/>
+							<p>
+								<a class="btn btn-danger" href="#">Cancelar</a>
+								<a class="btn btn-success" href="#">Cadastrar</a>
+							</p>
+						</div>
+					</h:form>
+				    </fieldset>
+	            </div> <!-- /tabbable -->
+	            
+              </div>
+            </div>
+			<style>
+				#fileName, #fileSize, #fileType{ 
+					font-style:italic;
+					color: #c1c1c1;
+					
+				}
+			</style>
+			<script>
+			   $(function() {
+			      $( "#datepicker" ).datepicker();
+			   });
+			   
+			   function fileSelected() {
+				  var file = document.getElementById('fileToUpload').files[0];
+				  if (file) {
+				    var fileSize = 0;
+				    if (file.size > 1024 * 1024)
+				      fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+				    else
+				      fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+				          
+				    document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+				    document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+				    document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+				  }
+			   }
+  			</script>
+		</div>
+	</ui:define>
+</ui:composition>	
+</f:view>
+</html>

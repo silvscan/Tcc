@@ -11,11 +11,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="js/extras/util.js"/>
 	<link href="css/bt/bootstrap.css" rel="stylesheet" media="screen" />
-	<script src="http://code.jquery.com/jquery.js" type="text/javascript"/>
+	<script src="js/extras/jquery.js" type="text/javascript"/>
 	<script src="js/bt/bootstrap.js"/>
 	<link href="css/bt/bootstrap-responsive.css" rel="stylesheet" media="screen" />
+	<style>
+		body {
+			background-color: #F9F9F9;
+		}
+	</style>
 </head>
-<body>
 <f:view>
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
@@ -33,7 +37,7 @@
 					<ul class="nav pull-right">
 						<li class="divider-vertical"/>
 						<li>
-							<a data-toggle="modal" href="#windowTitleDialog"><h:outputText value="#{msgTemplate.linkLogin}" /><img src="img/login.png" /></a>
+							<a data-toggle="modal" href="#windowTitleDialog"><b><h:outputText value="#{msgTemplate.linkLogin}"/></b><img src="img/login.png" /></a>
 						</li>
 					</ul>
 				</div>
@@ -41,8 +45,12 @@
 		</div>
 	</div>
 	<ui:include src="xhtml/extras/menu.xhtml"></ui:include>
-	<ui:define name="content"/>
+	<ui:insert name="conteudo"/>
 	<ui:include src="xhtml/extras/modalLogin.xhtml"></ui:include>
+<!-- 	<div class="navbar navbar-fixed-bottom"> -->
+<!-- 		<div class="navbar-inner" style="text-align: center;"> -->
+<!-- 	        <p>&copy;Company 2012</p> -->
+<!-- 		</div> -->
+<!--     </div> -->
 </f:view>
-</body>
 </html>

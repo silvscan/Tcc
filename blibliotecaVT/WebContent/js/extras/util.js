@@ -22,15 +22,15 @@ function getByclass(className){
 }
 
 function somenteNumeros(v){
-	return replace(/\D/g, "");
+	return v.replace(/\D/g, "");
 }
 
 function somenteLetras(v){
-	return replace(/\d/g, "");
+	return v.replace(/\d/g, "");
 }
 
 function somenteNumeros_letras(v){
-	return replace(/[^\w\s]/gi, "");
+	return v.replace(/[^\w\s]/gi, "");
 }
 
 /*
@@ -54,4 +54,18 @@ function converterNumeroInteiro(valor) {
 	var v = somenteNumeros(valor);
 	v = parseInt(v, 10);
 	return v;
+}
+
+function mascaraData(campoData){
+    var data = campoData.value;
+    if (data.length == 2){
+        data = data + '/';
+        campoData.value = data;
+return true;              
+    }
+    if (data.length == 5){
+        data = data + '/';
+        campoData.value = data;
+        return true;
+    }
 }

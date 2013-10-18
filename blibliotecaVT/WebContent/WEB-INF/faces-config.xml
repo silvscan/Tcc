@@ -21,5 +21,9 @@
 			<default-locale>pt</default-locale>
 		</locale-config>
 	</application>
+	
+	<application>
+	    <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+	</application>
 
 </faces-config>
