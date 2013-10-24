@@ -6,13 +6,33 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss 7.1 Runtime">
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.jsf;jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Downloads/jbossweb-7.0.13.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/c3p0-0.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/hibernate-testing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/infinispan-core-4.2.1.CR1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/jbosscache-core-3.2.1.GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/mysql-connector-java-5.1.17-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/oscache-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/proxool-0.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/swarmcache-1.0RC2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/jsf 2.1.7 AppEngine/jsf-api-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/jsf 2.1.7 AppEngine/jsf-impl-2.1.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

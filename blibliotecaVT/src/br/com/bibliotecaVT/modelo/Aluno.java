@@ -1,11 +1,22 @@
-package br.com.bibliotecaVT.obj;
+package br.com.bibliotecaVT.modelo;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBALUNO") 
 public class Aluno {
-	private String nome;
+	@Id
 	private int ra;
+	@Column
+	private String nome;
+	@Column
 	private Date dataNasc;
+	@Column
 	private String email;
 	
 	public String getNome() {

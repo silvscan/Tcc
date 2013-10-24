@@ -1,35 +1,26 @@
-package br.com.bibliotecaVT.bean;
+package br.com.bibliotecaVT.mb;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 
 import br.com.bibliotecaVT.controle.VOControleAluno;
-import br.com.bibliotecaVT.obj.Aluno;
-import br.com.bibliotecaVT.obj.Curso;
-import br.com.bibliotecaVT.obj.Orientador;
-import br.com.bibliotecaVT.obj.Trabalho;
+import br.com.bibliotecaVT.modelo.Aluno;
+import br.com.bibliotecaVT.modelo.Curso;
+import br.com.bibliotecaVT.modelo.Orientador;
+import br.com.bibliotecaVT.modelo.Trabalho;
 import br.com.bibliotecaVT.util.Resultado;
 
 @ManagedBean
-@RequestScoped
 public class CadastroBean {
-	private Aluno aluno;
-	private Orientador orientador;
-	private Curso curso;
-	private Trabalho trabalho;
-	private VOControleAluno voCadastrarAluno;
-	
-	public CadastroBean() {
-		aluno = new Aluno();
-		orientador = new Orientador();
-		curso = new Curso();
-		trabalho = new Trabalho();
-	}
+	private Aluno aluno = new Aluno();
+	private Orientador orientador = new Orientador();
+	private Curso curso = new Curso();
+	private Trabalho trabalho = new Trabalho();
+	private VOControleAluno voCadastrarAluno = new VOControleAluno();
 	
 	public void cadastrarAluno(){
 		voCadastrarAluno = new VOControleAluno();
-		Resultado resultato = voCadastrarAluno.cadastrar(aluno);
-		System.out.println(resultato);
+		Resultado resultado = voCadastrarAluno.cadastrar(aluno);
+		System.out.println(resultado);
 	}
 	
 	public Aluno getAluno() {

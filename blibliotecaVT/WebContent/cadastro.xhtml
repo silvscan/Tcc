@@ -1,8 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
 <f:view>
 <ui:composition template="_template.xhtml" >
 	<ui:define name="conteudo" >
@@ -16,15 +16,18 @@
                 <li><a href="#lD" data-toggle="tab">Cadastro de Cursos</a></li>
               </ul>
               <div class="tab-content" style="overflow-x:hidden;">
+                
                 <div class="tab-pane active" id="lA">
                   	<fieldset>
-				        <div class="span12">
-					<legend>Cadastro de Alunos</legend>
+                  	
+				    <div class="span12">
+						<legend>Cadastro de Alunos</legend>
 					</div>
-					<h:form id="frmCadastroAluno">
+					    <h:form>
+						
 						<div class="span5"> 
 							<h:outputText value="Nome:"/><br/>
-							<h:inputText id="nomeAluno" styleClass="input-large" value="#{cadastroBean.aluno.nome}"></h:inputText><br/>
+							<h:inputText id="nomeAluno" styleClass="input-large" value="#{cadastroBean.aluno.nome}" ></h:inputText><br/>
 						</div>
 						<div class="span4">
 							<h:outputText value="RA:"/><br/>
@@ -32,34 +35,34 @@
 						</div>
 						<div class="span5">
 							<h:outputText value="Data de Nascimento:"/><br/>
-							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium" value="#{cadastroBean.aluno.dataNasc}"/><br/>
+							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium" value="#{cadastroBean.aluno.dataNasc}">
+								<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+							</h:inputText>
+							<br/>
 						</div>
 						<div class="span4">
 							<h:outputText value="E-mail:"/><br/>
-							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large" value="#{cadastroBean.aluno.nome}"></h:inputText><br/>
+							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large" value="#{cadastroBean.aluno.email}"></h:inputText><br/>
 						</div>
 						
 						<br/>
+						
 						<div class="span9">
 							<br/>
-							<p>
-								<form>
-								<h:commandLink styleClass="btn btn-danger" value="Cancelar"/>
-								<h:outputText value=" "/>  
-								<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{cadastroBean.cadastrarAluno}"/>
-								</form>
-							</p>
+							<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+							<h:outputText value=" "/>  
+							<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{cadastroBean.cadastrarAluno}"/>
 						</div>
-					</h:form>
+						</h:form>
 				    </fieldset>
                 </div>
-                
+                 
                 <div class="tab-pane" id="lB">
                     <fieldset>
 				      <div class="span12">
 						<legend>Cadastro de Orientadores</legend>
 					</div>
-					<h:form  enctype="multipart/form-data">
+					<h:form>
 						<div class="span5"> 
 							<h:outputText value="Nome:"/><br/>
 							<h:inputText id="nomeAluno" styleClass="input-large"></h:inputText><br/>
@@ -159,7 +162,7 @@
 				      <div class="span12">
 						<legend>Cadastro de Curso</legend>
 					</div>
-					<h:form  enctype="multipart/form-data">
+					<h:form>
 						<div class="span9">
 							<h:outputText value="Área de Conhecimento:"/><br/>
 							<h:selectOneMenu>
@@ -204,9 +207,9 @@
 				}
 			</style>
 			<script>
-			   $(function() {
-			      $( "#datepicker" ).datepicker();
-			   });
+// 			   $(function() {
+// 			      $( "#datepicker" ).datepicker();
+// 			   });
 			   
 			   function fileSelected() {
 				  var file = document.getElementById('fileToUpload').files[0];
@@ -227,4 +230,5 @@
 	</ui:define>
 </ui:composition>	
 </f:view>
+</body>
 </html>

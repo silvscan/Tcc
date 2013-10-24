@@ -1,4 +1,4 @@
-package br.com.bibliotecaVT.obj;
+package br.com.bibliotecaVT.modelo;
 
 import java.util.Date;
 
