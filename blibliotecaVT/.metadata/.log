@@ -1,0 +1,33 @@
+!SESSION 2013-11-25 23:17:38.446 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_21
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data D:\workspace\faculdade7S\TrabalhoCC\tcc\blibliotecaVT -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.net 4 0 2013-11-25 23:17:49.368
+!MESSAGE WinHttp.GetProxyForUrl for pac failed with error 'A URL não usa um protocolo reconhecido
+' #12006.
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2013-11-25 23:18:00.041
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2013-11-25 23:18:00.042
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2013-11-25 23:18:00.042
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2013-11-25 23:18:00.042
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2013-11-25 23:18:00.042
+!MESSAGE Converted legacy STS plugin state locations
+!SESSION 2014-01-30 21:53:06.496 -----------------------------------------------
+eclipse.buildId=M20120914-1800
+java.version=1.7.0_21
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data D:\workspace\faculdade7S\TrabalhoCC\tcc\blibliotecaVT -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.net 4 0 2014-01-30 21:53:47.891
+!MESSAGE WinHttp.GetProxyForUrl for pac failed with error 'A URL não usa um protocolo reconhecido
+' #12006.
