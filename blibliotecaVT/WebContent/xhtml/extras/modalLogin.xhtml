@@ -1,25 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
 <f:view>
 	<f:loadBundle basename="resources.modalLoginBR" var="msgLogin"/>
 	<div id="windowTitleDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
-		<div class="modal-header">
-			<a href="#" class="close" data-dismiss="modal"><h:outputText value="#{msgLogin.fechar}"/></a>
-			<h3><h:outputText value="#{msgLogin.titulo}"/></h3>
+		<h:form id="frmLogin">
+			<div class="modal-header">
+				<a href="#" class="close" data-dismiss="modal"><h:outputText value="#{msgLogin.fechar}"/></a>
+				<h3><h:outputText value="#{msgLogin.titulo}"/></h3>
+				</div>
+			<div class="modal-body">
+				<div class="divDialogElements">
+					<h:outputText value="#{msgLogin.inputUsuario}"/>
+					<h:inputText styleClass="xlarge" id="login_usuario" value="#{loginBean.usuario.login}"/><br/>
+					<h:outputText value="#{msgLogin.inputSenha}"/>
+					<p:password styleClass="xlarge" type="password" id="login_senha" value="#{loginBean.usuario.senha}"/>
+				</div>
 			</div>
-		<div class="modal-body">
-			<div class="divDialogElements">
-				<input class="xlarge" type="text" id="login_usuario" placeholder="#{msgLogin.inputUsuario}" />
-				<input class="xlarge" type="password" id="login_senha" placeholder="#{msgLogin.inputSenha}"/>
+			<div class="modal-footer">
+				<a href="#" class="btn" onclick="closeDialog ();"><h:outputText value="#{msgLogin.btnCancelar}"/></a>
+				<h:commandButton styleClass="btn btn-primary" value="#{msgLogin.btnEntrar}" action="#{loginBean.efetuarLogin}"/>
 			</div>
-			<input type="checkbox"/> 
-			<h:outputText value=" #{msgLogin.gravarSenha}"/>
-		</div>
-		<div class="modal-footer">
-			<a href="#" class="btn" onclick="closeDialog ();"><h:outputText value="#{msgLogin.btnCancelar}"/></a>
-			<a href="#" class="btn btn-primary" onclick="okClicked ();"><h:outputText value="#{msgLogin.btnEntrar}"/></a>
-		</div>
+		</h:form>
 	</div>
 </f:view>
 <script src="js/extras/modalLogin.js"/>

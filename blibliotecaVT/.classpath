@@ -12,7 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/Rafael/Downloads/jbossweb-7.0.13.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/c3p0-0.9.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/cglib-2.2.jar"/>
@@ -34,5 +33,7 @@
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/TesteHibernate/lib/swarmcache-1.0RC2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/jsf 2.1.7 AppEngine/jsf-api-2.1.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/jsf 2.1.7 AppEngine/jsf-impl-2.1.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/primeFaces/primefaces-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rafael/Desktop/primeFaces/primefaces-3.4-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -17,8 +17,17 @@
 		</locale-config>
 		
 		<message-bundle>resources.menuBR</message-bundle>
+		<message-bundle>resources.application</message-bundle>
 		<locale-config>
 			<default-locale>pt</default-locale>
 		</locale-config>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
 	</application>
+	<lifecycle>
+    	<phase-listener>
+    		br.com.bibliotecaVT.listener.Autorizador
+    	</phase-listener>
+    </lifecycle>
 </faces-config>

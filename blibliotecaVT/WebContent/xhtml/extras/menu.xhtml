@@ -20,6 +20,7 @@
 	});
 </SCRIPT>
 <f:view>
+
 	<f:loadBundle basename="resources.menuBR" var="msgMenu"/>
     <div class="containerrr container">
 		<div class="masthead">
@@ -30,8 +31,12 @@
 							<li id="menuPrincipal"><a href="principal.rss"><h:outputText value="#{msgMenu.principal}"/></a></li>
 							<li id="menuProjetos"><a href="projetos.rss"><h:outputText value="#{msgMenu.projetos}"/></a></li>
 							<li id="menuPesquisas"><a href="pesquisas.rss"><h:outputText value="#{msgMenu.pesquisas}"/></a></li>
-							<li id="menuCadastro"><a href="cadastro.rss"><h:outputText value="#{msgMenu.cadastro}"/></a></li>
-							<li id="menuPerfil"><a href="perfil.rss"><h:outputText value="#{msgMenu.perfil}"/></a></li>
+							<h:panelGroup rendered="#{loginBean.usuario.getLogin() != null}">
+								<li id="menuCadastro"><a href="cadastro.rss" ><h:outputText value="#{msgMenu.cadastro}"/></a></li>
+							</h:panelGroup>
+							<h:panelGroup rendered="false">
+								<li id="menuPerfil"><a href="perfil.rss"><h:outputText value="#{msgMenu.perfil}"/></a></li>
+							</h:panelGroup>
 						</ul>
 					</div>
 				</div>

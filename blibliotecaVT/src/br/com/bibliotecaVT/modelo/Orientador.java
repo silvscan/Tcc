@@ -1,22 +1,22 @@
 package br.com.bibliotecaVT.modelo;
 
-public class Orientador {
-	
-	private String nome;
-	private int cod;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TBORIENTADOR") 
+public class Orientador extends Pessoa{
+	@GeneratedValue
+	private long id;
 	private String email;
 	
-	public String getNome() {
-		return nome;
+	public long getId() {
+		return id;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public int getCod() {
-		return cod;
-	}
-	public void setCod(int cod) {
-		this.cod = cod;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getEmail() {
 		return email;
@@ -25,4 +25,8 @@ public class Orientador {
 		this.email = email;
 	} 
 	
+	@Override
+	public String toString() {
+		return super.getNome();
+	}
 }

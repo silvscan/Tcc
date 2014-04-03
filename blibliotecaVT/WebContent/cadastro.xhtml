@@ -1,231 +1,513 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <body>
 <f:view>
 <ui:composition template="_template.xhtml" >
 	<ui:define name="conteudo" >
+		<style>
+			.tabelaFont{
+				font-size: 12px;
+			}
+		</style>
+		<h:form id="formErro">
+			<p:growl id="msgErro" showDetail="true" sticky="true"/>
+		</h:form>
 		<div class="container">
+			  <script src="js/pag/cadastro.js"/>
+			  <script src="js/extras/jquery-1.8.3.min.js"></script>
+			  <script src="js/extras/jquery.maskedinput.js"></script>
 			  <br/>
 			  <div class="tabbable tabs-left">
-              <ul class="nav nav-tabs">
-                <li class="active"><a href="#lA" data-toggle="tab">Cadastro de Alunos</a></li>
-                <li><a href="#lB" data-toggle="tab">Cadastros de Orientadores</a></li>
-                <li><a href="#lC" data-toggle="tab">Cadastro de Trabalhos</a></li>
-                <li><a href="#lD" data-toggle="tab">Cadastro de Cursos</a></li>
-              </ul>
-              <div class="tab-content" style="overflow-x:hidden;">
-                
-                <div class="tab-pane active" id="lA">
-                  	<fieldset>
-                  	
-				    <div class="span12">
-						<legend>Cadastro de Alunos</legend>
-					</div>
-					    <h:form>
-						
-						<div class="span5"> 
-							<h:outputText value="Nome:"/><br/>
-							<h:inputText id="nomeAluno" styleClass="input-large" value="#{cadastroBean.aluno.nome}" ></h:inputText><br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="RA:"/><br/>
-							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium" value="#{cadastroBean.aluno.ra}"></h:inputText><br/>
-						</div>
-						<div class="span5">
-							<h:outputText value="Data de Nascimento:"/><br/>
-							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium" value="#{cadastroBean.aluno.dataNasc}">
-								<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
-							</h:inputText>
-							<br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="E-mail:"/><br/>
-							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large" value="#{cadastroBean.aluno.email}"></h:inputText><br/>
-						</div>
-						
-						<br/>
-						
-						<div class="span9">
-							<br/>
-							<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
-							<h:outputText value=" "/>  
-							<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{cadastroBean.cadastrarAluno}"/>
-						</div>
-						</h:form>
-				    </fieldset>
-                </div>
-                 
-                <div class="tab-pane" id="lB">
-                    <fieldset>
-				      <div class="span12">
-						<legend>Cadastro de Orientadores</legend>
-					</div>
-					<h:form>
-						<div class="span5"> 
-							<h:outputText value="Nome:"/><br/>
-							<h:inputText id="nomeAluno" styleClass="input-large"></h:inputText><br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="Código:"/><br/>
-							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium"></h:inputText><br/>
-						</div>
-						<div class="span5">
-							<h:outputText value="E-mail:"/><br/>
-							<h:inputText id="emailAluno" onkeyup="this.value" styleClass="input-large"></h:inputText><br/>
-						</div>
-						
-						<br/>
-						<div class="span9">
-							<br/>
-							<p>
-								<a class="btn btn-danger" href="#">Cancelar</a>
-								<a class="btn btn-success" href="#">Cadastrar</a>
-							</p>
-						</div>
-					</h:form>
-				    </fieldset>
-                </div>
-                
-                <div class="tab-pane" id="lC">
-                    <fieldset>
-				        <div class="span12">
-						    <legend>Cadastro de Trabalhos de Conclusão de Curso</legend>
-					    </div>
-					</fieldset>
-					<h:form  enctype="multipart/form-data" id="formCTCC">
-						<div class="span5">
-							<h:outputText value="Título:"/><br/>
-							<h:inputText id="tituloTrabalho" styleClass="input-large"/>
-						</div>
-						<div class="span4">
-							<h:outputText value="Faculdade"/><br/>
-							<h:selectOneMenu>
-								<f:selectItem itemValue="Selecione"/>
-								<f:selectItem itemValue="Faccamp"/>
-							</h:selectOneMenu><br/>
-						</div>
-						<div class="span5">
-							<h:outputText value="Curso:"/><br/>
-							<h:selectOneMenu>
-								<f:selectItem itemValue="Selecione"/>
-								<f:selectItem itemValue="Ciência da Computação"/>
-								<f:selectItem itemValue="Química"/>
-							</h:selectOneMenu><br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="Data de Conclusão:"/><br/>
-							<h:inputText id="dataConclusao" onkeyup="mascaraData(this)" styleClass="input-medium"/><br/>
-						</div>
-						<div class="span5">
-							<h:outputText value="Orientador:"/><br/>
-							<h:selectOneMenu>
-								<f:selectItem itemValue="Selecione"/>
-								<f:selectItem itemValue="1" itemLabel="André Ribeiro"/>
-							</h:selectOneMenu><br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="Código do orientador:"/><br/>
-							<h:inputText id="codOrientador" styleClass="input-large" disabled="true"/>
-						</div>
-						<div class="span5">
-							<h:outputText value="Aluno:"/><br/>
-							<h:selectOneMenu>
-								<f:selectItem itemValue="Selecione"/>
-								<f:selectItem itemValue="11122" itemLabel="Rafael Scane da Silva"/>
-							</h:selectOneMenu>
-						</div>
-						<div class="span4">
-							<h:outputText value="RA do Aluno:"/><br/>
-							<h:inputText id="raAluno" styleClass="input-large" disabled="true"/>
+	              <ul class="nav nav-tabs">
+	                <li class="active"><a href="#lA" data-toggle="tab">Alunos</a></li>
+	                <li><a href="#lH" data-toggle="tab">Áreas de Conhecimento</a></li>
+	                <li><a href="#lD" data-toggle="tab">Cursos</a></li>
+	                <li><a href="#lf" data-toggle="tab">Faculdades</a></li>
+	                <li><a href="#lB" data-toggle="tab">Orientadores</a></li>
+	                <li><a href="#lC" data-toggle="tab">Trabalhos</a></li>
+	                <li><a href="#lU" data-toggle="tab">Usuários</a></li>
+	              </ul>
+	              <div class="tab-content" style="overflow-x:hidden;">
+		               <div class="tab-pane active" id="lA">
+		                 	<fieldset>
+						    <div class="span9">
+								<legend>Cadastro de Alunos</legend>
+							</div>
+						    <h:form id="frmCadastroAlu">
+								<div class="span5"> 
+									<h:outputText value="Nome: *"/><br/>
+									<h:inputText id="nomeAluno" styleClass="input-xlarge, obr" value="#{cadastroBean.aluno.nome}" required="true" requiredMessage="Nome é Obrigatório"></h:inputText><br/>
+								</div>
+								<div class="span4">
+									<h:outputText value="Data de Nascimento: *"/><br/>
+									<h:inputText id="dataNascimentoAlu" styleClass="input-medium" value="#{cadastroBean.aluno.dataNasc}" required="true" requiredMessage="Data Nascimento é obrigatório" validatorMessage="A data inserida não é válida">
+										<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+									</h:inputText>
+									<br/>
+								</div>
+								<div class="span5">
+									<h:outputText value="E-mail:"/><br/>
+									<h:inputText id="emailAluno" styleClass="input-large" value="#{cadastroBean.aluno.email}"></h:inputText><br/>
+								</div>
+								<div class="span4">
+									<h:outputText value="CPF: *"/><br/>
+									<h:inputText id="cpfAlunoCad" styleClass="input-large" value="#{cadastroBean.aluno.cpfFormatado}" required="true" requiredMessage="CPF é obrigatório"></h:inputText>
+									<br/>
+								</div>
+								<br/>
+								<div class="span9">
+									<br/>
+									<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+									<h:outputText value=" "/>  
+									<h:commandButton styleClass="btn btn-success" value="Gravar" action="#{cadastroBean.cadastrarAluno}">
+									</h:commandButton>
+								</div>
+							</h:form>
+					    </fieldset>
+					    <div class="span9">
+							<legend/>
 						</div>
 						<div class="span9">
-							<h:outputText value="Upload do trabalho :"/><br/>
-							<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();"/>
-						    <div id="fileName"></div>
-						    <div id="fileSize"></div>
-						    <div id="fileType"></div>
+							<h:form id="formTableAlu" styleClass="tabelaFont">
+								<p:dataTable value="#{cadastroBean.listAlunos}" var="aluno" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+									<p:column>
+										<f:facet name="header">Nome</f:facet>
+										#{aluno.nome}
+									</p:column>
+				
+									<p:column>
+										<f:facet name="header">Data de Nascimento</f:facet>
+										<center>
+											<h:outputLabel id="dataNascimentoAlu" styleClass="tabelaFont" value="#{aluno.dataNasc}">
+												<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+											</h:outputLabel>
+										</center>
+									</p:column>
+									<p:column>
+										<f:facet name="header">CPF</f:facet>
+										#{aluno.cpf}
+									</p:column>
+									<p:column>
+										<f:facet name="header">E-Mail</f:facet>
+										#{aluno.email}
+									</p:column>
+									<p:column >
+										<f:facet name="header">Ações</f:facet>
+										<center>
+											<h:commandLink action="#{cadastroBean.remove(aluno)}" value="Remover ">
+												<f:ajax render=":formTableAlu" />
+											</h:commandLink>
+										    <f:ajax render=":frmCadastroAlu" execute="@form">
+												<h:commandLink value="/ Alterar">
+													<f:setPropertyActionListener target="#{cadastroBean.aluno}"	value="#{aluno}">
+														
+													</f:setPropertyActionListener>
+												</h:commandLink>
+										    </f:ajax>
+										</center>
+								   </p:column>
+								</p:dataTable>
+							</h:form>
 						</div>
-						<div class="span9">
-							<br/>
-							<p>
-								<a class="btn btn-danger" href="#">Cancelar</a>
-								<a class="btn btn-success" href="#">Cadastrar</a>
-							</p>
-						</div>
-					</h:form>
-                </div>
-                
-                <div class="tab-pane" id="lD">
-	                  <fieldset>
-				      <div class="span12">
-						<legend>Cadastro de Curso</legend>
-					</div>
-					<h:form>
-						<div class="span9">
-							<h:outputText value="Área de Conhecimento:"/><br/>
-							<h:selectOneMenu>
-								<f:selectItem itemValue="Selecione"/>
-								<f:selectItem itemValue="Ciência Agrária"/>
-								<f:selectItem itemValue="Ciência Biológica"/>
-								<f:selectItem itemValue="Ciência da Saúde"/>
-								<f:selectItem itemValue="Ciência Exata e da Terra"/>
-								<f:selectItem itemValue="Ciência Humana"/>
-								<f:selectItem itemValue="Ciência Social Aplicada"/>
-								<f:selectItem itemValue="Engenharia"/>
-								<f:selectItem itemValue="Linguitíca, Letras e Artes"/>
-							</h:selectOneMenu><br/>
-						</div>
-						<div class="span5"> 
-							<h:outputText value="Título:"/><br/>
-							<h:inputText id="nomeAluno" styleClass="input-large"></h:inputText><br/>
-						</div>
-						<div class="span4">
-							<h:outputText value="Código:"/><br/>
-							<h:inputText id="ra" onkeyup="this.value" styleClass="input-medium"></h:inputText><br/>
-						</div>
-						<br/>
-						<div class="span9">
-							<br/>
-							<p>
-								<a class="btn btn-danger" href="#">Cancelar</a>
-								<a class="btn btn-success" href="#">Cadastrar</a>
-							</p>
-						</div>
-					</h:form>
-				    </fieldset>
-	            </div> <!-- /tabbable -->
-	            
-              </div>
-            </div>
-			<style>
-				#fileName, #fileSize, #fileType{ 
-					font-style:italic;
-					color: #c1c1c1;
+		               </div>
+		                
+		               <div class="tab-pane" id="lB">
+		                   <fieldset>
+					      <div class="span9">
+							<legend>Cadastro de Orientadores</legend>
+						  </div>
+							<h:form id="frmCadastroProf">
+								<div class="span5"> 
+									<h:outputText value="Nome: *"/><br/>
+									<h:inputText id="nomeOrientador" styleClass="input-large"  value="#{cadastroBean.orientador.nome}" required="true" requiredMessage=" Nome é obrigatório"></h:inputText><br/>
+								</div>
+								<div class="span4">
+									<h:outputText value="Data de Nascimento: *"/><br/>
+									<h:inputText id="dataNascimentoOri"  required="true" styleClass="input-medium" value="#{cadastroBean.orientador.dataNasc}" requiredMessage="Data nascimento é obrigatório">
+										<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+									</h:inputText>
+									<br/>
+								</div>
+								<div class="span5">
+									<h:outputText value="E-mail:"/><br/>
+									<h:inputText id="emailOrientador" styleClass="input-large" value="#{cadastroBean.orientador.email}" requiredMessage="Email é obrigatório"></h:inputText><br/>
+								</div>
+								<br/>
+								<div class="span4">
+									<h:outputText value="CPF: *"/><br/>
+									<h:inputText id="cpfOrientadorCad" required="true" styleClass="input-large" value="#{cadastroBean.orientador.cpfFormatado}" requiredMessage="CPF é obrigatório"></h:inputText>
+									<br/>
+								</div>
+								<br/>
+								<div class="span9">
+									<br/>
+									<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+									<h:outputText value=" "/>  
+									<h:commandButton styleClass="btn btn-success" value="Gravar" action="#{cadastroBean.cadastrarOrientador}"/>
+								</div>
+							</h:form>
+						    </fieldset>
+						    <div class="span9">
+								<legend/>
+							</div>
+						    <div class="span9">
+								<h:form id="formTableOri" styleClass="tabelaFont">
+									<p:dataTable value="#{cadastroBean.listOrientadores}" var="ori" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+										<p:column>
+											<f:facet name="header">Nome</f:facet>
+											#{ori.nome}
+										</p:column>
 					
-				}
-			</style>
-			<script>
-// 			   $(function() {
-// 			      $( "#datepicker" ).datepicker();
-// 			   });
-			   
-			   function fileSelected() {
-				  var file = document.getElementById('fileToUpload').files[0];
-				  if (file) {
-				    var fileSize = 0;
-				    if (file.size > 1024 * 1024)
-				      fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
-				    else
-				      fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
-				          
-				    document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
-				    document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
-				    document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
-				  }
-			   }
-  			</script>
+										<p:column>
+											<f:facet name="header">Data de Nascimento</f:facet>
+											<center>
+												<h:outputLabel id="dataNascimentoAlu" value="#{ori.dataNasc}">
+													<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+												</h:outputLabel>
+											</center>
+										</p:column>
+										<p:column>
+											<f:facet name="header">CPF</f:facet>
+											#{ori.cpf}
+										</p:column>
+										<p:column>
+											<f:facet name="header">E-Mail</f:facet>
+											#{ori.email}
+										</p:column>
+										<p:column >
+											<f:facet name="header">Ações</f:facet>
+											<center>
+												<h:commandLink value="Remover "  action="#{cadastroBean.remove(ori)}">
+													<f:ajax render=":formTableOri" />
+												</h:commandLink>
+											<f:ajax render=":frmCadastroProf" execute="@form">
+												<h:commandLink value="/ Alterar">
+													<f:setPropertyActionListener target="#{cadastroBean.orientador}"
+														value="#{ori}">
+													</f:setPropertyActionListener>
+												</h:commandLink>
+											</f:ajax>
+											</center>
+									   </p:column>
+									</p:dataTable>
+								</h:form>
+							</div>
+		               </div>
+		               <div class="tab-pane" id="lC">
+		                   <fieldset>
+					        <div class="span9">
+							    <legend>Cadastro de Trabalhos de Conclusão de Curso</legend>
+						    </div>
+							<h:form id="formCTCC" enctype="multipart/form-data">
+								<div class="span5">
+									<h:outputText value="Título *: "/><br/>
+									<h:inputText id="tituloTrabalho" styleClass="input-xlarge" required="true" requiredMessage=" Título é obrigatório" value="#{cadastroBean.trabalho.titTrabalho}"/>
+								</div>
+								<div class="span4">
+									<h:outputText value="Faculdade *"/><br/>
+									<h:selectOneMenu value="#{cadastroBean.codFaculdade}" validatorMessage="Selecione uma Faculdade">
+										<f:selectItem itemValue="0" itemLabel="Selecione"/>
+										<f:selectItems value="#{cadastroBean.listFaculdades}" var="faculdade" itemValue="#{faculdade.cod}" itemLabel="#{faculdade.nome}"/>
+										<f:validateLongRange minimum="1"/>
+									</h:selectOneMenu><br/>
+								</div>
+								<div class="span5">
+									<h:outputText value="Curso: *"/><br/>
+									<h:selectOneMenu value="#{cadastroBean.codCurso}">
+										<f:selectItem itemValue="0" itemLabel="Selecione"/>
+										<f:selectItems value="#{cadastroBean.listCursos}" var="curso" itemValue="#{curso.codCurso}" itemLabel="#{curso.tituloCurso}"/>
+									</h:selectOneMenu><br/>
+								</div>
+								<div class="span4">
+									<h:outputText value="Data de Conclusão: *"/><br/>
+									<h:inputText id="dataConclusao" required="true" styleClass="input-medium" value="#{cadastroBean.trabalho.dataConclusao}" requiredMessage=" Data de Conclusão é obrigatório">
+										<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"></f:convertDateTime>
+									</h:inputText>
+									<br/>
+								</div>
+								<div class="span5">
+									<h:outputText value="CPF do Orientador: *"/><br/>
+									<h:inputText id="cpfOrientadorTB" styleClass="input-large" required="true" requiredMessage=" CPF do Orientador é obrigatório" value="#{cadastroBean.cpfOrientador}"></h:inputText>
+								</div>
+								<div class="span4">
+									<h:outputText value="Nome do orientador:"/><br/>
+									<h:inputText id="nomeOrientadorCT" styleClass="input-large" disabled="true"/>
+								</div>
+								<div class="span5">
+									<h:outputText value="CPF do Aluno: *"/><br/>
+									<h:inputText id="cpfAlunoTB" styleClass="input-large" required="true" value="#{cadastroBean.cpfAluno}" requiredMessage=" CPF do Aluno é obrigatório"></h:inputText>
+								</div>
+								<div class="span4">
+									<h:outputText value="Nome do Aluno:" /><br/>
+									<h:inputText id="nomeAlunoCT" styleClass="input-large" disabled="true"/>
+								</div>
+								<div class="span9">
+									<p:fileUpload value="#{cadastroBean.file}" required="true" requiredMessage=" É obrigatório anexar o PDF" mode="simple"/>
+								</div>
+								<div class="span9">
+									<br/>
+									<p:commandButton styleClass="btn btn-danger" value="Cancelar" action="#{cadastro.xhtml}"/>
+									<h:outputText value=" "/>  
+									<p:commandButton styleClass="btn btn-success" value="Gravar" ajax="false" actionListener="#{cadastroBean.cadastrarTrabalho}"/>
+								</div>
+							</h:form>
+						</fieldset>
+						<p>
+						<div class="span9">
+							<legend/>
+						</div></p>
+					    <div class="span9">
+							<h:form id="formTableTB" styleClass="tabelaFont">
+								<p:dataTable value="#{cadastroBean.listTrabalhos}" var="tb" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+									<p:column>
+										<f:facet name="header">Titulo</f:facet>
+										#{tb.titTrabalho}
+									</p:column>
+									<p:column>
+										<f:facet name="header">Autor</f:facet>
+										#{tb.aluno.nome}
+									</p:column>
+									<p:column>
+										<f:facet name="header">Orientador</f:facet>
+										#{tb.orientador.nome}
+									</p:column>
+									<p:column>
+										<f:facet name="header">Data de conclusão</f:facet>
+										<center>
+											<h:outputLabel id="dataConclusaoTB"  value="#{tb.dataConclusao}">
+												<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+											</h:outputLabel>
+										</center>
+									</p:column>
+									<p:column>
+										<f:facet name="header">Faculdade</f:facet>
+										#{tb.faculdade.nome}
+									</p:column>
+									<p:column>
+										<f:facet name="header">Curso</f:facet>
+										#{tb.curso.tituloCurso}
+									</p:column>
+									<p:column >
+										<f:facet name="header">Ações</f:facet>
+										<center>
+											<h:commandLink value="Remover " action="#{cadastroBean.remove(tb)}">
+												<f:ajax render=":formTableTB" />
+											</h:commandLink>
+										<f:ajax render=":formCTCC" execute="@form">
+											<h:commandLink value="/ Alterar">
+												<f:setPropertyActionListener target="#{cadastroBean.trabalho}"
+													value="#{tb}">
+												</f:setPropertyActionListener>
+											</h:commandLink>
+										</f:ajax>
+										</center>
+								   </p:column>
+								</p:dataTable>
+							</h:form>
+						</div>
+		               </div>
+		               
+		               <div class="tab-pane" id="lD">
+		                  <fieldset>
+					      <div class="span9">
+							<legend>Cadastro de Curso</legend>
+						</div>
+						<h:form id="frmCurso">
+							<div class="span5">
+								<h:outputText value="Área de Conhecimento: *" /><br/>
+								<h:selectOneMenu value="#{cadastroBean.idAConhecimento}">
+									 <f:selectItem itemValue="0" itemLabel="Selecione"/>
+									 <f:selectItems value="#{cadastroBean.listAreasConhecimento}" var="area" itemValue="#{area.id}" itemLabel="#{area.titulo}" />
+								</h:selectOneMenu><br/>
+							</div>
+							<div class="span4"> 
+								<h:outputText value="Título: *"/><br/>
+								<h:inputText id="nomeAluno" styleClass="input-large" required="true" value="#{cadastroBean.curso.tituloCurso}"></h:inputText><br/>
+							</div>
+							<br/>
+							<div class="span9">
+								<br/>
+								<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+								<h:outputText value=" "/>  
+								<h:commandButton styleClass="btn btn-success" value="Gravar" action="#{cadastroBean.cadastrarCurso}"/>
+							</div>
+						</h:form>
+					    </fieldset>
+					    <div class="span9">
+							<legend/>
+						</div>
+					    <div class="span9">
+							<h:form id="formTableCurso" styleClass="tabelaFont">
+								<p:dataTable value="#{cadastroBean.listCursos}" var="curso" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+									<p:column>
+										<f:facet name="header">Área Conhecimento</f:facet>
+										#{curso.areaConhecimento.titulo}
+									</p:column>
+									<p:column>
+										<f:facet name="header">Título</f:facet>
+										#{curso.tituloCurso}
+									</p:column>
+									<p:column >
+										<f:facet name="header">Ações</f:facet>
+										<center>
+											<h:commandLink value="Remover " action="#{cadastroBean.remove(curso)}">
+												<f:ajax render=":formTableCurso" />
+											</h:commandLink>
+										<f:ajax render=":frmCurso" execute="@form">
+											<h:commandLink value="/ Alterar">
+												<f:setPropertyActionListener target="#{cadastroBean.curso}"
+													value="#{curso}">
+												</f:setPropertyActionListener>
+											</h:commandLink>
+										</f:ajax>
+										</center>
+								   </p:column>
+								</p:dataTable>
+							</h:form>
+						</div>
+		            </div>
+		            
+		               <div class="tab-pane" id="lf">
+		               	   <fieldset>
+					       <div class="span9">
+							   <legend>Cadastro de Faculdades</legend>
+						    </div>
+						    <h:form id="formFaculdade">
+								<div class="span5"> 
+									<h:outputText value="Nome: *"/><br/>
+									<h:inputText id="nomeAluno" styleClass="input-xlarge" value="#{cadastroBean.faculdade.nome}" required="true"></h:inputText><br/>
+								</div>
+								<div class="span4">
+									<h:outputText value="Estado: *"/><br/>
+									<h:inputText id="estado" styleClass="input-medium" value="#{cadastroBean.faculdade.estado}" required="true"></h:inputText><br/>
+								</div>
+								<div class="span5">
+									<h:outputText value="Cidade: *"/><br/>
+									<h:inputText id="cidade" styleClass="input-medium" value="#{cadastroBean.faculdade.cidade}" required="true"></h:inputText><br/>
+								</div>
+								<br/>
+								<div class="span9">
+									<br/>
+									<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+									<h:outputText value=" "/>  
+									<h:commandButton styleClass="btn btn-success" value="Gravar" action="#{cadastroBean.cadastrarFaculdade}"/>
+								</div>
+							</h:form>
+						    </fieldset>
+						    <div class="span9">
+								<legend/>
+							</div>
+						    <div class="span9">
+								<h:form id="formTableFacul" styleClass="tabelaFont">
+									<p:dataTable value="#{cadastroBean.listFaculdades}" var="faculdade" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+										<p:column>
+											<f:facet name="header">Nome</f:facet>
+											#{faculdade.nome}
+										</p:column>
+										<p:column>
+											<f:facet name="header">Estado</f:facet>
+											#{faculdade.estado}
+										</p:column>
+										<p:column>
+											<f:facet name="header">Cidade</f:facet>
+											#{faculdade.cidade}
+										</p:column>
+										<p:column >
+											<f:facet name="header">Ações</f:facet>
+											<center>
+												<h:commandLink value="Remover " action="#{cadastroBean.remove(faculdade)}">
+													<f:ajax render=":formTableFacul" />
+												</h:commandLink>
+											<f:ajax render=":formFaculdade" execute="@form">
+												<h:commandLink value="/ Alterar">
+													<f:setPropertyActionListener target="#{cadastroBean.faculdade}"
+														value="#{faculdade}">
+													</f:setPropertyActionListener>
+												</h:commandLink>
+											</f:ajax>
+											</center>
+									   </p:column>
+									</p:dataTable>
+								</h:form>
+							</div>
+		               </div> 
+	                   <div class="tab-pane" id="lU">
+	                   	   <fildset>
+	                   	   	   <legend>Cadastro de Usuários</legend>
+	                   	   	   <h:form id="formUsuario">
+								   <div class="span5">
+								       <h:outputText value="Login"/><br/>
+								       <h:inputText id="cadastrologin" value="#{cadastroBean.user.login}" required="true"/>	
+								   </div>
+								   <div class="span4">
+								       <h:outputText value="Senha"/><br/>
+								       <p:password type="password" id="login_senha" value="#{cadastroBean.user.senha}"/>  	
+								   </div>
+								   <div class="span9">
+								       <h:commandButton styleClass="btn btn-danger" value="Cancelar" action="#{cadastro.xhtml}"/>
+									   <h:outputText value=" "/>  
+									   <h:commandButton styleClass="btn btn-success" value="Gravar" actionListener="#{cadastroBean.cadastrarUsuario}">
+									       <f:ajax render="@form :formErro" execute="@form"/>
+									   </h:commandButton>
+							       </div>
+							   </h:form>
+					       </fildset>
+				       </div>
+				       <div class="tab-pane" id="lH">
+					       <fieldset>
+						    <div class="span9">
+								<legend>Cadastro de Áreas de Conhecimento</legend>
+							</div>
+						    <h:form id="formtableAC">
+								<div class="span5"> 
+									<h:outputText value="Título: *"/><br/>
+									<h:inputText id="tituloArea" styleClass="input-xlarge, obr" value="#{cadastroBean.areaConhecimento.titulo}" required="true"></h:inputText><br/>
+								</div>
+								<div class="span9">
+									<br/>
+									<h:commandButton styleClass="btn btn-danger" value="Cancelar"/>
+									<h:outputText value=" "/>  
+									<h:commandButton styleClass="btn btn-success" value="Gravar" action="#{cadastroBean.cadastrarAreaConhecimento}" required="true"/>
+								</div>
+							</h:form>  
+							</fieldset>
+							 <div class="span9">
+								<legend/>
+							</div>
+						    <div class="span9">
+								<h:form id="formTableAreaCon" styleClass="tabelaFont">
+									<p:dataTable value="#{cadastroBean.listAreasConhecimento}" var="ac" styleClass="dados" rowClasses="impar,par" paginator="true" rows="5" lazy="true">
+										<p:column>
+											<f:facet name="header">Id</f:facet>
+											#{ac.id}
+										</p:column>
+										<p:column>
+											<f:facet name="header">Título</f:facet>
+											#{ac.titulo}
+										</p:column>
+										<p:column >
+											<f:facet name="header">Ações</f:facet>
+											<center>
+												<h:commandLink value="Remover " action="#{cadastroBean.remove(ac)}">
+													<f:ajax render=":formTableAreaCon" />
+												</h:commandLink>
+											<f:ajax render=":formtableAC" execute="@form">
+												<h:commandLink value="/ Alterar">
+													<f:setPropertyActionListener target="#{cadastroBean.areaConhecimento}" value="#{ac}">
+													</f:setPropertyActionListener>
+												</h:commandLink>
+											</f:ajax>
+											</center>
+									   </p:column>
+									</p:dataTable>
+								</h:form>
+							</div>
+				       </div>  
+		        </div>
+            </div>
 		</div>
 	</ui:define>
 </ui:composition>	

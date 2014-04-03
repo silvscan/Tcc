@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="ajax4jsf.dve.java.net/ajax"
+	xmlns:p="http://primefaces.org/ui">
 
 <f:loadBundle basename="resources.templateBR" var="msgTemplate" />
-<head>
+<h:head>
 	<title><h:outputText value="#{msgTemplate.titulo}" /></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="js/extras/util.js"/>
@@ -19,10 +21,10 @@
 			background-color: #F9F9F9;
 		}
 	</style>
-</head>
+</h:head>
 <body>
 <f:view>
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-fixed-top" style="z-index: 1 !important">
 		<div class="navbar-inner">
 			<div class="container">
 				<!-- Collapsable nav bar -->
@@ -34,14 +36,24 @@
 				<a class="brand" href="#">
 					<h:outputText value="#{msgTemplate.titulo}" />
 				</a>
-				<div class="nav-collapse">
-					<ul class="nav pull-right">
-						<li class="divider-vertical"/>
-						<li>
-							<a data-toggle="modal" href="#windowTitleDialog"><b><h:outputText value="#{msgTemplate.linkLogin}"/></b><img src="img/login.png" /></a>
-						</li>
-					</ul>
-				</div>
+				<h:form id="frmDeslogar">
+					<div class="nav-collapse">
+						<ul class="nav pull-right">
+							<li class="divider-vertical"/>
+							<h:panelGroup rendered="#{loginBean.usuario.getLogin() == null}">
+								<li><a data-toggle="modal" href="#windowTitleDialog"><b><img src="img/login.png"/><h:outputText value="Login"/></b></a></li>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{loginBean.usuario.getLogin() != null}">
+								<li>
+		<!-- 						<a><h:outputText value="#{loginBean.usuario.login}"/></a> -->
+									<h:commandLink action="#{loginBean.deslogar}">
+										<b><img src="img/login.png"/><h:outputText value="Deslogar"/></b>
+									</h:commandLink>
+								</li>
+							</h:panelGroup>
+						</ul>
+					</div>
+				</h:form>
 			</div>
 		</div>
 	</div>

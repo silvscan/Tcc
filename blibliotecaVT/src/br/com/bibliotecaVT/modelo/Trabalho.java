@@ -1,49 +1,99 @@
 package br.com.bibliotecaVT.modelo;
 
-import java.util.Date;
+import java.util.Date; 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-public class Trabalho {
+@Entity
+@Table(name="tbTrabalho")
+public class Trabalho{
+	@Id 
+	@GeneratedValue
+	private long id;
 	private String titTrabalho;
-	private int codFaculdade;
+	@ManyToOne
+	private Faculdade faculdade;
 	private Date dataConclusao;
-	private int codAluno;
-	private int codOrientador;
-	private int codCurso;
+	@ManyToOne //(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private Aluno aluno;
+	@ManyToOne //(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private Orientador orientador;
+	@ManyToOne //(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private Curso curso;
+	private String localArquivo;
+	private long score;
+	private int quantidadeVotos;
+	private long totalVotos;
 	
+	public long getTotalVotos() {
+		return totalVotos;
+	}
+	public void setTotalVotos(long totalVotos) {
+		this.totalVotos = totalVotos;
+	}
 	public String getTitTrabalho() {
 		return titTrabalho;
 	}
 	public void setTitTrabalho(String titTrabalho) {
 		this.titTrabalho = titTrabalho;
 	}
-	public int getCodFaculdade() {
-		return codFaculdade;
-	}
-	public void setCodFaculdade(int codFaculdade) {
-		this.codFaculdade = codFaculdade;
-	}
+	
 	public Date getDataConclusao() {
 		return dataConclusao;
 	}
 	public void setDataConclusao(Date dataConclusao) {
 		this.dataConclusao = dataConclusao;
 	}
-	public int getCodAluno() {
-		return codAluno;
+	public long getId() {
+		return id;
 	}
-	public void setCodAluno(int codAluno) {
-		this.codAluno = codAluno;
+	public void setId(long id) {
+		this.id = id;
 	}
-	public int getCodOrientador() {
-		return codOrientador;
+	public Aluno getAluno() {
+		return aluno;
 	}
-	public void setCodOrientador(int codOrientador) {
-		this.codOrientador = codOrientador;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
-	public int getCodCurso() {
-		return codCurso;
+	public Curso getCurso() {
+		return curso;
 	}
-	public void setCodCurso(int codCurso) {
-		this.codCurso = codCurso;
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
+	public Orientador getOrientador() {
+		return orientador;
+	}
+	public void setOrientador(Orientador ori) {
+		this.orientador = ori;
+	}
+	public String getLocalArquivo() {
+		return localArquivo;
+	}
+	public void setLocalArquivo(String localArquivo) {
+		this.localArquivo = localArquivo;
+	}
+	public long getScore() {
+		return score;
+	}
+	public void setScore(long score) {
+		this.score = score;
+	}
+	public int getQuantidadeVotos() {
+		return quantidadeVotos;
+	}
+	public void setQuantidadeVotos(int quantidadeVotos) {
+		this.quantidadeVotos = quantidadeVotos;
+	}
+	public Faculdade getFaculdade() {
+		return faculdade;
+	}
+	public void setFaculdade(Faculdade faculdade) {
+		this.faculdade = faculdade;
+	}
+	
 }
