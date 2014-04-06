@@ -12,7 +12,7 @@
 			  <script src="js/extras/jquery.maskedinput.js"></script>
 			<script>
 				function carregaPDF(url){
-					get('urlArquivo').data = "http://localhost:7001/blibliotecaVT/" + url.id;
+					get('urlArquivo').data = "http://localhost:8080/blibliotecaVT/" + url.id;
 				}
 				$('body').ready(function(){
 					formatarTabela();
@@ -38,6 +38,9 @@
 			<style>
 				.smallText{
 					font-size: 12px;
+				}
+				.styleTable{
+					float: left;
 				}
 			</style>
 			
@@ -98,7 +101,7 @@
 				</div>
 			</div>
 			<div class="span9" style="height:15px;"/>
-			<h:form id="formTable">
+			<h:form id="formTable" styleClass="styleTable">
 				<p:growl id="messages" showDetail="true" sticky="true"/>
 				<h:dataTable styleClass="table table-condensed" id="tableTrabalhos" var="trabalho" value="#{cadastroBean.listTrabalhos}">
 					<h:column styleClass="span2">
